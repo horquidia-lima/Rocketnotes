@@ -1,5 +1,5 @@
-import { FiArrowLeft, FiUser,FiMail, FiLock } from "react-icons/fi";
-import { Container, Form } from "./styles";
+import { FiArrowLeft, FiUser,FiMail, FiLock, FiCamera } from "react-icons/fi";
+import { Container, Form, Avatar } from "./styles";
 import { Input} from "../../components/Input";
 import { Button } from "../../components/Button";
 
@@ -13,6 +13,20 @@ export function Profile() {
             </header>
 
             <Form>
+                <Avatar>
+                    <img 
+                        src="https://github.com/horquidia-lima.png" 
+                        alt="Foto do usuario" 
+                    />
+
+                    <label htmlFor="avatar">
+                        <FiCamera/>
+                        <input 
+                            id="avatr"
+                            type="file"
+                        />
+                    </label>
+                </Avatar>
                 <Input
                     placeholder='Horquidia Lima'
                     type="text"
