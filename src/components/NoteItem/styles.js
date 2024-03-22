@@ -1,23 +1,45 @@
-import {FiPlus, Fix} from 'react-icons/fi'
+import styled from "styled-components";
 
-import {Container} from './styles'
+export const Container = styled.div`
+    display: flex;
+    align-items: center;
 
-export function NoteItem({isNew, value, onClick, ...rest}){
-    return(
-        <Container isNew={isNew}>
-            <input
-                type='text'
-                value={value}
-                readOnly={!isNew}
-                {...rest}
-            />
+    background-color: ${({theme, isNewTheme}) => isNew ? 'transparent' : theme.COLORS.BACKGROUND_900};
+    color: ${({theme}) => theme.COLORS.GRAY_300};
 
-            <button
-             onClick={onClick}
-             type='button'
-            >
-                {isNew ? <FiPlus/> : <Fix/>}
-            </button>
-        </Container>
-    )
-}
+    border: ${({theme, isNew}) => isNew ? `1px dashed ${theme.COLORS.GRAY_300}` : 'none'};
+
+    margin-bottom: 8px;
+    border-radius: 10px;
+    padding-right: 16px;
+
+    > button {
+        border: none;
+        background: none;
+    }
+
+    .button-delete {
+        color: ${({theme}) => theme.COLORS.RED};
+    }
+
+    .button-add {
+        color: ${({theme}) => theme.COLORS.ORANGE};
+    }
+
+    > input {
+        height: 56px;
+        width: 100%;
+
+        padding: 12px;
+
+        color: ${({theme}) => theme.COLORS.WHITE};
+        background: transparent;
+
+        border: none;
+
+        &::placeholder {
+            color: ${({theme}) => theme.COLORS.GRAY_300}
+        }
+    }
+
+`
